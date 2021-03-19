@@ -13,11 +13,15 @@ Try a naive solution if you dont have any idea.
 Is it READ heavy? - URL redirection, Twitter, LinkedIn, Facebook
 
 # Twitter
+READ heavy application.
 
 ## Features
 1. Tweeting
 2. Timeline
 3. Following
+4. Search
+5. Push Notifications
+6. Advertising
 
 ## Design 1: Naive Solution
 Create a USER table and a TWEET table.
