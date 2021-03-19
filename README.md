@@ -1,19 +1,20 @@
-# 
-Clarifications
-Bandwidth, Storage numbers
-Database design
-API design
-HLD
-LLD
-Bottlenecks
+# Strategy
+- Clarifications
+- Bandwidth, Storage numbers
+- Database design
+- API design
+- HLD
+- LLD
+- Bottlenecks
 
 # Tips
-Take few features and explain its usage.
-Try a naive solution if you dont have any idea.
-Is it READ heavy? - URL redirection, Twitter, LinkedIn, Facebook
+- Take few features and explain its usage.
+- Try a naive solution if you dont have any idea.
+- Is it READ heavy? - URL redirection, Twitter, LinkedIn, Facebook
 
 # Twitter
-READ heavy application.
+- READ heavy application.
+- https://www.youtube.com/watch?v=KmAyPUv9gOY
 
 ## Features
 1. Tweeting
@@ -49,8 +50,17 @@ TWEET:
 - Twitter wants Eventual Consistency - high availability over accurate information.
 
 ## Design 2: 
+Because it is READ heavy, it should be fast.
+![image](https://user-images.githubusercontent.com/42272776/111832555-f2c1b900-8916-11eb-8fe0-7f42b26c6165.png)
 
+Whenever a new post is submitted by an user, the REDIS clusters ( 3 from it ) will have their content recomputed and stored. So the next time their followers login or refresh, this cached content would be served.
 
+This solution needs lot of memory which is still ok as the content is just a 140 character text.
+
+For SEARCH functionality, we can use a SOLR index.
+
+### Considerations
+What if a celebrity posts a tweet - in this case, there will be large number of followers and so large number of computations involved at REDIS. To circumvent this, celebrity tweets can be stored in SQL/RDBMS and then dynamically be merged before serving to the end user.
 
 
 
