@@ -1,9 +1,9 @@
 # Strategy
 - Clarifications
-- Bandwidth, Storage numbers
-- Database design
-- API design
-- HLD
+- Traffic - Bandwidth, Storage numbers
+- Database design - schema
+- API design - REST API b/w two components
+- HLD - main components ( cdn, load balancer, application services, caching layers, database and storage layers )
 - LLD
 - Bottlenecks
 
